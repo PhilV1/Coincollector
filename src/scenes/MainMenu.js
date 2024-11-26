@@ -1,8 +1,8 @@
-import Phaser from 'phaser'
+import { Scene } from 'phaser';
 
-export class MainMenu extends Phaser.Scene {
+export class MainMenu extends Scene {
   constructor() {
-    super('MainMenu')
+    super('MainMenu');
   }
 
   create() {
@@ -16,14 +16,14 @@ export class MainMenu extends Phaser.Scene {
           fill: '#fff',
         }
       )
-      .setOrigin(0.5)
+      .setOrigin(0.5);
 
     this.input.on(
       'pointerdown',
       () => {
-        this.scene.start('Game')
+        this.scene.start('Game');
       },
       this
-    )
+    );
   }
 }

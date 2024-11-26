@@ -1,6 +1,8 @@
-export class EndgameScreen extends Phaser.Scene {
+import { Scene } from 'phaser';
+
+export class EndgameScreen extends Scene {
   constructor() {
-    super('EndgameScreen')
+    super('EndgameScreen');
   }
 
   create() {
@@ -14,14 +16,14 @@ export class EndgameScreen extends Phaser.Scene {
           fill: '#fff',
         }
       )
-      .setOrigin(0.5)
+      .setOrigin(0.5);
 
     this.input.on(
       'pointerdown',
       () => {
-        this.scene.start('Game')
+        this.scene.start('Game');
       },
       this
-    )
+    );
   }
 }
