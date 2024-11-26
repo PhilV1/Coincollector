@@ -8,8 +8,9 @@ export class Game extends Scene {
   }
 
   preload() {
+    // path
     this.load.setPath('assets');
-
+    // images
     this.load.image('background', 'bg.png');
     this.load.image('player', 'Jump (32x32).png');
     this.load.spritesheet('frog', 'Run (32x32).png', {
@@ -23,9 +24,13 @@ export class Game extends Scene {
 
     this.load.image('apple', 'apple.png');
     this.load.image('platform', 'platform.png');
+
+    // audio
+    this.load.audio('coin', 'coin.mp3');
   }
 
   create() {
+    this.coinSound = this.sound.add('coin');
     gameState.background = this.add.image(512, 384, 'background');
     gameState.platform = this.physics.add.staticGroup();
 
@@ -72,7 +77,7 @@ export class Game extends Scene {
     function collectApple(player, apple) {
       apple.disableBody(true, true);
       gameState.score += 10;
-
+      this.coinSound.play();
       gameState.scoreText.setText('Score: ' + gameState.score);
     }
 
